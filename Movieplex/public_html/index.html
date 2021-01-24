@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MoviePlex | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
+    <link rel="shortcut icon" type="image/PNG" href="/images/favicon.PNG"/>
+
+ <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+
+<style>
+        * {box-sizing: border-box;}
+        body {font-family: Verdana, sans-serif;}
+        .mySlides {display: none;}
+        img {vertical-align: middle;}
+        html, body {
+          text-align: center;
+          background-color: black;
+        }
+        
+        body{
+			margin-top:5%;
+			padding-top:50px;
+		}
+        
+        .inline-block {
+            display: inline-block;
+            padding: 10px
+        }
+        
+        .btn {
+            margin-bottom: 15px;
+        }
+        
+        .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        }
+        div.second {
+          border: 5px solid #262626;
+          position: relative;
+          float: right;
+          right: 40px;
+          border-radius: 25px;
+          margin: 50px 0 75px;
+          background-color:#262626;
+          max-width: 600px;
+          width:100%;
+          max-height: 630px;
+          text-align:center;
+          padding-top:10px;
+
+        }
+        
+        
+        .slideshowContainer {
+          position: absolute;
+          left: 0px;
+          overflow: hidden;
+          margin: 50px 0 75px;
+          width: 50%;
+          height: 600px;
+        }
+        
+        .imageSlides {
+          position: absolute;
+          border-radius: 20px;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 100%;
+          max-height: 100%;
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+          z-index: -1;
+        }
+        
+        /* add 'visible' class via Javascript */
+        .visible {
+          opacity: 1;
+        }
+        
+        .slideshowArrow {
+          font-size: 7em;
+          color: rgba(255, 255, 255, 0.5);
+          cursor: pointer;
+          transition: opacity 0.2s ease-in-out;
+        }
+        
+        .slideshowArrow:hover {
+          opacity: 0.75;
+        }
+        
+        #leftArrow {
+          position: absolute;
+          left: 4%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+        
+        #rightArrow {
+          position: absolute;
+          right: 4%;
+          top: 50%;
+          transform: translate(50%, -50%);
+        }
+        
+        .slideshowCircles {
+          position: absolute;
+          bottom: 2%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        }
+        
+        .circle {
+          display: inline-block;
+          margin-left: 3px;
+          margin-right: 3px;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          border: solid 2px rgba(255, 255, 255, 0.5);
+          transition: 1s ease-in-out;
+        }
+        
+        .dot {
+          background-color: rgba(255, 255, 255, 0.7);
+          border: solid 2px rgba(255, 255, 255, 0.5);
+        }
+        .discount{
+          padding-top: 5px;
+          max-width: 95%;
+          max-height: 60%;
+          border-radius: 25px;
+        }
+        
+        .PC20{
+          float: left;
+          
+          max-width: 5%;
+          max-height: 10%;
+          border-radius: 20px;
+        }
+        
+        .tickets{
+          text-align: center;
+          padding-top: 10px;
+          color:white;
+          font-family:'Work Sans';
+          font-weight:bold;
+          max-height:100%;
+          width:300px;
+          max-width:100%;
+          font-size:30px;
+          font-size:2.5vw;
+        }
+        .booking{
+          position: relative;
+          padding-top: 30px;
+          max-width:100%;
+          float: right;
+          right: 10%;
+        }
+        .discount20{
+          padding: 20px;
+          max-height: 700%;
+          max-width: 700%;
+          border-radius: 40px;
+        }
+        
+        footer{
+          height: 200px;
+          position: absolute;
+          min-width: 100%;
+          bottom: -1000px;
+           background: #D11616;
+          padding-top: 2em;
+          color: white;
+          /**color: #D11616;**/
+        
+        }
+        footer a{
+          color: white;
+        }
+        footer a:hover{
+          color: black;
+        }
+        
+        #ffont{
+            font-family:'Work Sans';
+            font-size:20px;
+        }
+        
+        ul.ffont{
+            font-family:'Work Sans';
+            font-size:12px;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+          .col-sm-6 {
+            width: 100%;
+            background: #D11616;
+          }
+
+          .col-md-3 {
+            width: 100%;
+            background: #D11616;
+          }
+          
+          .mainfooter {
+            bottom: -2000px;              
+          }
+	}
+
+        
+        
+        /**Sub Navigation**/
+        .subnavigation-container{
+          background: #3d6277;
+        }
+        .subnavigation .nav-link{
+          color: white;
+          font-weight: bold;
+        }
+        .subnavigation-container{
+          text-align: center;
+        }
+        .subnavigation-container .navbar{
+          display: inline-block;
+          margin-bottom: -6px; /* Inline-block margin offffset HACK -Gilron */
+        }
+        .col-subnav a{
+          padding: 1rem 1rem;
+          color: white;
+          font-weight: bold;
+        }
+        .col-subnav .active{
+          border-top:5px solid orange;
+         background: white;
+          color: black;
+        }
+        
+        .max{margin-left:10%;margin-right:10%;position:absolute;top:116%;max-height:80%}
+        .max a{text-decoration:none;}
+        
+        #title{font-family:'Bebas Neue';
+		font-size:70px;
+		color:white;
+		font-style:italic;
+		letter-spacing:1px;
+		text-shadow: 2px 2px 4px red;
+		text-align:center;}
+        
+        .c-text{font-family:'Work Sans';}
+
+
+</style>
+</head>
+<body>
+ <!--Header-->
+ <nav class="navbar navbar-expand-sm flex-column align-items-stretch navbar-inverse bg-inverse fixed-top" style="background-color:#D11616">
+    <div class="d-flex align-content-sm-center">
+        <a href="./index.html" class="navbar-brand mx-sm-auto mr-auto"><img src="images/Movieplex_fin.png" style="max-width:50%;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+	<div class="d-md-flex d-block flex-row mx-md-auto mx-0">
+    <div class="collapse navbar-collapse w-100" id="navbarMenu" style="font-family:'Work Sans';">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a href="./movies.html" class="nav-link" style="color:white;" onMouseOver="this.style.color='black'"
+        onMouseOut="this.style.color='white'">MOVIES</a>
+            </li>
+            <li class="nav-item">
+                <a href="trailers.html" class="nav-link" style="color:white;" onMouseOver="this.style.color='black'"
+        onMouseOut="this.style.color='white'">TRAILERS</a>
+            </li>
+			<li class="nav-item">
+                <a href="./food.html" class="nav-link" style="color:white;" onMouseOver="this.style.color='black'"
+        onMouseOut="this.style.color='white'">FOOD/DRINKS</a>
+            </li>
+            <li class="nav-item">
+                <a href="./contact.html" class="nav-link" style="color:white;" onMouseOver="this.style.color='black'"
+        onMouseOut="this.style.color='white'">CONTACT US</a>
+            </li>
+            <li class="nav-item">
+                <a href="./locations.html" class="nav-link" style="color:white;" onMouseOver="this.style.color='black'"
+        onMouseOut="this.style.color='white'"> LOCATIONS</a>
+            </li>
+            <li class="nav-item">
+                <a href="./news.html" class="nav-link news" style="color:white;" onMouseOver="this.style.color='black'"
+        onMouseOut="this.style.color='white'"> NEWS</a>
+            </li>
+        </ul>
+    </div>
+	</div>
+</nav>
+<div>
+<div class="slideshowContainer">
+  
+<!-- Replace the image 'src' with the images in your project.
+Javascript is set up so that you can add as many images as you like, but make sure that you match the number of 'circle' span elements (below) to the number of images -->
+  <img class="imageSlides" src="images\dune.jpg" alt="Dune">
+  <img class="imageSlides" src="images\f9.jpg" alt="F9">
+  <img class="imageSlides" src="images\tg.jpg" alt="TopGun">
+  <img class="imageSlides" src="images\widow.jpg" alt="BlackWidow">
+  
+<!-- I would recommend to replace these 'span' elements with 'img' files
+for each the left and right arrow that fits your project, and size accordingly.
+I've shown 'span' elements because I didn't want to upload files. -->
+  <span id ="leftArrow" class="slideshowArrow">&#8249;</span>
+  <span id ="rightArrow" class="slideshowArrow">&#8250;</span>
+  
+  <div class="slideshowCircles">
+<!-- Filled 'dot' class is set to first image in slideshow, and then via Javascript the filled 'dot' class follows the current image.
+Make sure you match the number of these 'circle' span elements to the number of images in your slideshow. -->
+    <span class="circle dot"></span>
+    <span class="circle"></span>
+    <span class="circle"></span>
+    <span class="circle"></span>
+  </div>
+  
+</div>
+
+<!--Advertisements-->
+<div class="second">
+  <div>
+  <img class="discount" src="images\half_off.png" alt="Discount">
+  </div>
+  <div class="PC20">
+    <img class="discount20" src="images\20_off_2.jpg" alt="Discount">
+  </div>
+<div class="booking">
+    <h3 class="tickets">Pre-Bookings Available</h3>
+    <a href="tickets.html"><button type="button" class="btn btn-danger">Book Now!</button></a>
+  </div>
+</div>
+<br>
+<br>
+
+    <!--News Cards-->
+	<div class='max'>
+	    <a href="./news.html"><h2 id="title">Latest News</h2></a>
+	<div class="card-deck">
+  <div class="card">
+	<a href="https://screenrant.com/spencer-kristen-stewart-princess-diana-crown-season-4/">
+    <img class="card-img-top" src="https://static3.srcdn.com/wordpress/wp-content/uploads/2020/02/Jean-Seberg-biopic-Kristen-Stewart.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5" alt="Card image cap">
+    <div class="card-body c-text">
+      <h5 class="card-title" style="color:red;">Kristen Stewart Watched The Crown Season 4 To Prepare For Princess Diana Role</h5></a>
+      <p class="card-text">Kristen Stewart looked to The Crown season 4 for inspiration as she prepared to play Princess Diana in Pablo Larraín's forthcoming biopic Spencer.</p>
+      <p class="card-text"><small class="text-muted">Last Updated 1 hour ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+	<a href="https://screenrant.com/riz-ahmed-chadwick-boseman-inspiration-how/">
+    <img class="card-img-top" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2020/11/How-Riz-Ahmed-Has-Been-Inspired-By-Chadwick-Boseman.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5" alt="Card image cap">
+    <div class="card-body c-text">
+      <h5 class="card-title" style="color:red;">How Riz Ahmed Has Been Inspired By Chadwick Boseman</h5></a>
+      <p class="card-text">British actor and rapper Riz Ahmed details how the late Black Panther star Chadwick Boseman inspired him with his dignity and moral compass.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 hours ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <a href="https://screenrant.com/new-mutants-movie-vod-success-performance-numbers/">
+	<img class="card-img-top" src="https://www.indiewire.com/wp-content/uploads/2020/03/disney-will-release-a-new-trailer-for-marvels-the-new-mutants-next-month-social.jpg" alt="Card image cap">
+	<div class="card-body c-text">
+      <h5 class="card-title" style="color:red;">New Mutants Is Big Hit On VOD</h5></a>
+      <p class="card-text">Despite a disappointing box office performance and middling critical reception, The New Mutants seems to be gaining traction with video on demand.</p>
+      <p class="card-text"><small class="text-muted">11/25/2020</small></p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--Footer-->
+<footer class="mainfooter" role="contentinfo">
+ 
+  <div class="footer-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <!--Column1-->
+        <div class="footer-pad">
+          <h4 id="ffont">SPECIAL DISCOUNTS</h4>
+          <address>
+                <ul class="list-unstyled ffont">
+                  <li>
+                    50% discount on Tuesdays<br>
+                    40% discount on all food & drinks on Thursdays<br>
+                    20% off for all students<br>
+                  </li>
+                </ul>
+              </address>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <!--Column2-->
+        <div class="footer-pad">
+          <h4 id="ffont">OUR LOCATIONS</h4>
+          <ul class="list-unstyled ffont">
+            <li><a href="locations.html">Auburn Movieplex 10
+            </a></li>
+            <li><a href="locations.html">Geneva Movieplex 8</a></li>
+            <li><a href="locations.html">Johnstown Movieplex
+            </a></li>
+            <li><a href="locations.html">Massena Movieplex</a></li>
+            <li><a href="locations.html">Movieplex Cinema
+            </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <!--Column3-->
+        <div class="footer-pad">
+          <h4 id="ffont">INCOMING MOVIES</h4>
+          <ul class="list-unstyled ffont">
+            <li><a href="movies.html">Fast & Furious 9</a></li>
+            <li><a href="movies.html">Top Gun:Maverick</a></li>
+            <li><a href="movies.html">Dune </a></li>
+            <li><a href="movies.html">Black Widow</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <!--Column4-->
+        <div class="footer-pad">
+          <h4 id="ffont">USEFUL PAGES</h4>
+          <ul class="list-unstyled ffont">
+            <li><a href="ratings.html">Ratings</a></li>
+            <li><a href="job.html">Apply for a Job</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="parties.html">Groups & Parties</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+ 
+</footer>
+</body>
+
+
+<script>
+    // IMAGE SLIDES & CIRCLES ARRAYS, & COUNTER
+    var imageSlides = document.getElementsByClassName('imageSlides');
+    var circles = document.getElementsByClassName('circle');
+    var leftArrow = document.getElementById('leftArrow');
+    var rightArrow = document.getElementById('rightArrow');
+    var counter = 0;
+    
+    // HIDE ALL IMAGES FUNCTION
+    function hideImages() {
+      for (var i = 0; i < imageSlides.length; i++) {
+        imageSlides[i].classList.remove('visible');
+      }
+    }
+    
+    // REMOVE ALL DOTS FUNCTION
+    function removeDots() {
+      for (var i = 0; i < imageSlides.length; i++) {
+        circles[i].classList.remove('dot');
+      }
+    }
+    
+    // SINGLE IMAGE LOOP/CIRCLES FUNCTION
+    function imageLoop() {
+      var currentImage = imageSlides[counter];
+      var currentDot = circles[counter];
+      currentImage.classList.add('visible');
+      removeDots();
+      currentDot.classList.add('dot');
+      counter++;
+    }
+    
+    // LEFT & RIGHT ARROW FUNCTION & CLICK EVENT LISTENERS
+    function arrowClick(e) {
+      var target = e.target;
+      if (target == leftArrow) {
+        clearInterval(imageSlideshowInterval);
+        hideImages();
+        removeDots();
+        if (counter == 1) {
+          counter = (imageSlides.length - 1);
+          imageLoop();
+          imageSlideshowInterval = setInterval(slideshow, 2000);
+        } else {
+          counter--;
+          counter--;
+          imageLoop();
+          imageSlideshowInterval = setInterval(slideshow, 2000);
+        }
+      } 
+      else if (target == rightArrow) {
+        clearInterval(imageSlideshowInterval);
+        hideImages();
+        removeDots();
+        if (counter == imageSlides.length) {
+          counter = 0;
+          imageLoop();
+          imageSlideshowInterval = setInterval(slideshow, 10000);
+        } else {
+          imageLoop();
+          imageSlideshowInterval = setInterval(slideshow, 10000);
+        }
+      }
+    }
+    
+    leftArrow.addEventListener('click', arrowClick);
+    rightArrow.addEventListener('click', arrowClick);
+    
+    
+    // IMAGE SLIDE FUNCTION
+    function slideshow() {
+      if (counter < imageSlides.length) {
+        imageLoop();
+      } else {
+        counter = 0;
+        hideImages();
+        imageLoop();
+      }
+    }
+    
+    // SHOW FIRST IMAGE, & THEN SET & CALL SLIDE INTERVAL
+    setTimeout(slideshow, 1000);
+    var imageSlideshowInterval = setInterval(slideshow, 10000);
+</script>
+
+</body>
+</html> 
