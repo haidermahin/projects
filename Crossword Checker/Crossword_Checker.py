@@ -1,5 +1,4 @@
-#mahin haider 500946982
-# got help from zubin singh
+#mahin haider
 
 def printboard(board):
     number =(' 01234567890123456789')
